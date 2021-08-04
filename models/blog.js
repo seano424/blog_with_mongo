@@ -7,16 +7,17 @@ const blogSchema = new mongoose.Schema({
     minLength: 3,
     required: true,
   },
-  author: {
-    type: String,
-  },
+  author: String,
   content: {
     type: String,
     required: true,
   },
-  image: {
-    type: String,
+  image: String,
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
   },
+  date: Date,
 })
 
 blogSchema.set('toJSON', {
